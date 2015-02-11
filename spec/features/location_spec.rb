@@ -4,7 +4,7 @@ require 'rails_helper'
 describe 'User can CRUD locations' do
 
   scenario 'User can create a Location' do
-    # visit root
+    # visit root aka homepage
     visit '/'
 
     # click on link to go to new location form
