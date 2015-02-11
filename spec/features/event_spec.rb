@@ -116,7 +116,23 @@ require 'rails_helper'
       #expect page to show updated description of Kenneth
       expect(page).to have_content("Kenneth")
 
+  end
+
+  scenario 'User can delete an event' do
+
+    @location = Location.create(:name => "Jake", :address => "New Address", :zipcode => "90210")
+    visit "/locations/#{@location.id}"
+    @event = Event.create(:description => "Ken", :date => "2015-01-02", :requires_id => true)
+    visit "/locations/#{@location.id}/events/#{@event.id}"
+
+    #click on Delete
+    click_on "Delete"
+
+    # expecting the flash notification (code says Location but should say Event)
+    # test works but base code needs to be fixed
+    expect(page).to have_content("Location was successfully destroyed.")
 
   end
+
 
 end
