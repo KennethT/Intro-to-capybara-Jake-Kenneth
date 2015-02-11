@@ -44,7 +44,7 @@ Capybara cheat sheet: https://gist.github.com/zhengjia/428105
 
 
 ###### Events
-- Users can create an event at an event.
+- Users can create an event at a location.
 - Users can see a show page for an event.
 - Users can edit an event.
 - Users can delete an event.
