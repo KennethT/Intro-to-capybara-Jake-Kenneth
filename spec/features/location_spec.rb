@@ -82,7 +82,26 @@ describe 'User can CRUD locations' do
 
 
   scenario 'User can delete a location' do
-    #fill in
+    # visit homepage
+    visit '/'
+
+    # click on link to go to new location form
+    click_on "New Location"
+
+    #filling out form for location
+    fill_in 'location[name]', :with => "Jake"
+    fill_in 'location[address]', with: "New Address"
+    fill_in 'location[zipcode]', with: "90210"
+
+    #submitting form to create a location
+    click_on "Create Location"
+
+    # click on link to existing location
+    click_on "Delete"
+
+    #now we expect the index page to not have the name of the location we previously created.
+    # expecting the flash notification
+    expect(page).to have_content("Location was successfully destroyed.")
   end
 
 
